@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "Tap",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "cfeaee23-81a0-40fa-af9c-c988f251483b",
-                    "expectedControlType": "Touch",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -19,7 +19,7 @@
                 {
                     "name": "",
                     "id": "484dc1eb-e49a-4799-87c0-4ac005de5f98",
-                    "path": "<Touchscreen>/primaryTouch",
+                    "path": "<Touchscreen>/primaryTouch/tap",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
