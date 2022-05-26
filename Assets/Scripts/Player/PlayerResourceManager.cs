@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerResourceManager : MonoBehaviour
+public  class PlayerResourceManager : MonoBehaviour
 {
+    public static PlayerResourceManager Instance;
     public enum ResourceType
     {
         Magica,
@@ -15,6 +16,7 @@ public class PlayerResourceManager : MonoBehaviour
 
     [Header("Component References")]
     [SerializeField] private PlayerWallet _playerWallet;
+    [SerializeField] private PlayerResourceUI _ResourceUI;
 
     [Header("Multipliers")]
     [SerializeField] private List<float> _magicaIncomeMultiplier;
@@ -27,8 +29,13 @@ public class PlayerResourceManager : MonoBehaviour
     //UNITY METHODS ________________________________________________________________________
     private void Awake()
     {
+        //Manage Instances
+        if (Instance != null && Instance != this) Destroy(this);
+        else Instance = this;
+
         _playerWallet = GetComponent<PlayerWallet>();
 
+        //Initialize lists
         _magicaIncomeMultiplier = new List<float>();
         _alchemyIncomeMultiplier = new List<float>();
         _occultIncomeMultiplier = new List<float>();
@@ -40,8 +47,38 @@ public class PlayerResourceManager : MonoBehaviour
     public void AddToPlayerWallet(int amount, ResourceType typeOfResource)
     {
         _playerWallet.AddToWallet(ApplyMultipliers(amount, GetMultipliers(typeOfResource)), typeOfResource);
+        _ResourceUI.UpdateResourceTotal(_playerWallet.GetValue(typeOfResource), typeOfResource);
     }
 
+    public void AddToMultiplier(float amount, ResourceType typeOfResource)
+    {
+
+        Debug.Log("Adding to multiplier:" + typeOfResource);
+        switch (typeOfResource)
+        {
+            case ResourceType.Magica:
+                _magicaIncomeMultiplier.Add(amount);
+                break;
+
+            case ResourceType.Alchemy:
+                _alchemyIncomeMultiplier.Add(amount);
+                break;
+
+            case ResourceType.Occult:
+                _occultIncomeMultiplier.Add(amount);
+                break;
+
+            case ResourceType.Money:
+                _moneyIncomeMultiplier.Add(amount);
+                break;
+
+            case ResourceType.Prestige:
+                _prestigeIncomeMultiplier.Add(amount);
+                break;
+        }
+
+        _ResourceUI.UpdateMultiplierTotal(ApplyMultipliers(1, GetMultipliers(typeOfResource)), typeOfResource);
+    }
     public List<float> GetMultipliers(ResourceType typeOfResource)
     {
         List<float> multiplierList = new List<float>();
@@ -86,6 +123,5 @@ public class PlayerResourceManager : MonoBehaviour
 
         return (int)currentAmount;
     }
-
 
 }
