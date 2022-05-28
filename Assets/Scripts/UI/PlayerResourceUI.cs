@@ -18,9 +18,14 @@ public class PlayerResourceUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _totalPrestigeText;
     [SerializeField] private TextMeshProUGUI _incrementalPrestigeText;
 
+    [Header("Customization")]
+    [SerializeField] private bool _displayNextIncrement = true;
+    [SerializeField] private bool _displayResourceTotal = true;
 
     public void UpdateResourceTotal(int amount, PlayerResourceManager.ResourceType typeOfResource)
     {
+        if (!_displayResourceTotal) return;
+
         TextMeshProUGUI textToUpdate = _totalAlchemyText;
         switch (typeOfResource)
         {
@@ -50,6 +55,8 @@ public class PlayerResourceUI : MonoBehaviour
 
     public void UpdateMultiplierTotal (int amount, PlayerResourceManager.ResourceType typeOfResource)
     {
+        if (!_displayNextIncrement) return;
+
         TextMeshProUGUI textToUpdate = _incrementalAlchemyText;
         switch (typeOfResource)
         {
