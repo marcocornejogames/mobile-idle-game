@@ -5,8 +5,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private void OnTap()
+    [Header("Control Broadcast Events")]
+    [SerializeField] private OnVector2Event _touchOnePositionEvent;
+    [SerializeField] private OnBoolEvent _touchOneIsDownEvent;
+    private void OnTouch0(InputValue inputValue)
     {
-        Debug.Log("tap!");
+        _touchOneIsDownEvent.Invoke(inputValue.isPressed);
+    }
+
+    private void OnTouch0Position(InputValue inputValue)
+    {
+        Vector2 touchPosition = inputValue.Get<Vector2>();
+        _touchOnePositionEvent.Invoke(touchPosition);
     }
 }
