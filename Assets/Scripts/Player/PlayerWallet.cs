@@ -38,6 +38,32 @@ public class PlayerWallet : MonoBehaviour
         }
     }
 
+
+    public void RemoveFromWallet(int amount, PlayerResourceManager.ResourceType typeOfResource)
+    {
+        switch (typeOfResource)
+        {
+            case PlayerResourceManager.ResourceType.Magica:
+                _magica -= amount;
+                break;
+
+            case PlayerResourceManager.ResourceType.Alchemy:
+                _alchemy -= amount;
+                break;
+
+            case PlayerResourceManager.ResourceType.Occult:
+                _occult -= amount;
+                break;
+
+            case PlayerResourceManager.ResourceType.Money:
+                _money -= amount;
+                break;
+
+            case PlayerResourceManager.ResourceType.Prestige:
+                _prestige -= amount;
+                break;
+        }
+    }
     public int GetValue(PlayerResourceManager.ResourceType typeOfResource)
     {
         int returnValue = 0;

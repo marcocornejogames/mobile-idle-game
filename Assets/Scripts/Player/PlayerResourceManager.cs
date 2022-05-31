@@ -44,12 +44,25 @@ public  class PlayerResourceManager : MonoBehaviour
     }
 
     //CUSTOM METHODS _______________________________________________________________________
+
+    //_______________________________________________________________________ PLAYER WALLET
     public void AddToPlayerWallet(int amount, ResourceType typeOfResource)
     {
         _playerWallet.AddToWallet(ApplyMultipliers(amount, GetMultipliers(typeOfResource)), typeOfResource);
         _ResourceUI.UpdateResourceTotal(_playerWallet.GetValue(typeOfResource), typeOfResource);
     }
 
+    public void RemoveFromWallet(int amount, ResourceType typeOfResource)
+    {
+        _playerWallet.RemoveFromWallet(amount, typeOfResource);
+        _ResourceUI.UpdateResourceTotal(_playerWallet.GetValue(typeOfResource), typeOfResource);
+    }
+    public int CheckPlayerBalance(ResourceType typeOfResource)
+    {
+        return _playerWallet.GetValue(typeOfResource);
+    }
+
+    //_________________________________________________________________________MULTIPLIERS
     public void AddToMultiplier(float amount, ResourceType typeOfResource)
     {
 
