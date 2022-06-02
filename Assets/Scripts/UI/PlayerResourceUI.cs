@@ -22,7 +22,7 @@ public class PlayerResourceUI : MonoBehaviour
     [SerializeField] private bool _displayNextIncrement = true;
     [SerializeField] private bool _displayResourceTotal = true;
 
-    public void UpdateResourceTotal(int amount, PlayerResourceManager.ResourceType typeOfResource)
+    public void UpdateResourceTotal(float amount, PlayerResourceManager.ResourceType typeOfResource)
     {
         if (!_displayResourceTotal) return;
 
@@ -50,10 +50,10 @@ public class PlayerResourceUI : MonoBehaviour
                 break;
         }
 
-        textToUpdate.text = amount.ToString();
+        textToUpdate.text = MathTools.ReadableNumber(amount);
     }
 
-    public void UpdateMultiplierTotal (int amount, PlayerResourceManager.ResourceType typeOfResource)
+    public void UpdateMultiplierTotal (float amount, PlayerResourceManager.ResourceType typeOfResource)
     {
         if (!_displayNextIncrement) return;
 
@@ -81,6 +81,6 @@ public class PlayerResourceUI : MonoBehaviour
                 break;
         }
 
-        textToUpdate.text = amount.ToString();
+        textToUpdate.text = MathTools.ReadableNumber(amount);
     }
 }

@@ -38,7 +38,6 @@ public class ResourceTransaction : MonoBehaviour
         int index = 0;
         foreach (PlayerResourceManager.ResourceType typeOfResource in _typesOfResource)
         {
-            Debug.Log("Completing transaction type: " + _typeOfTransaction + " " + typeOfResource);
             switch (_typeOfTransaction)
             {
                 case TypeOfTransaction.AddResource:

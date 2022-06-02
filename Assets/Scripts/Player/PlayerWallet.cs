@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlayerWallet : MonoBehaviour
 {
     [Header("Feedback")]
-    [SerializeField] private int _magica = 0;
-    [SerializeField] private int _alchemy = 0;
-    [SerializeField] private int _occult = 0;
-    [SerializeField] private int _money = 0;
-    [SerializeField] private int _prestige = 0;
+    [SerializeField] private float _magica = 0;
+    [SerializeField] private float _alchemy = 0;
+    [SerializeField] private float _occult = 0;
+    [SerializeField] private float _money = 0;
+    [SerializeField] private float _prestige = 0;
 
     //CUSTOM METHODS _________________________________________
-    public void AddToWallet(int amount, PlayerResourceManager.ResourceType typeOfResource)
+    public void AddToWallet(float amount, PlayerResourceManager.ResourceType typeOfResource)
     {
         switch (typeOfResource)
         {
@@ -39,7 +39,7 @@ public class PlayerWallet : MonoBehaviour
     }
 
 
-    public void RemoveFromWallet(int amount, PlayerResourceManager.ResourceType typeOfResource)
+    public void RemoveFromWallet(float amount, PlayerResourceManager.ResourceType typeOfResource)
     {
         switch (typeOfResource)
         {
@@ -64,9 +64,9 @@ public class PlayerWallet : MonoBehaviour
                 break;
         }
     }
-    public int GetValue(PlayerResourceManager.ResourceType typeOfResource)
+    public float GetValue(PlayerResourceManager.ResourceType typeOfResource)
     {
-        int returnValue = 0;
+        float returnValue = 0;
 
         switch (typeOfResource)
         {
