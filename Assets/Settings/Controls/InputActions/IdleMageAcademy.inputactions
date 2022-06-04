@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Touch0Hold",
+                    "type": "Value",
+                    "id": "ff6c4042-3079-454d-9c5e-056a75644f6f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1)",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Touch1",
                     "type": "Value",
                     "id": "9cdf64d8-35a3-45de-91f2-89a360660d12",
@@ -84,6 +93,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Touch1Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7d37856a-1f0d-4e7e-aab9-7679ae6210de",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch0Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

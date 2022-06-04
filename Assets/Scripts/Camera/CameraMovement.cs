@@ -20,6 +20,9 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Vector2 _touchTwoPosition;
     [SerializeField] private bool _touchTwoIsPressed;
     [SerializeField] private float _currentPinchDistance;
+
+    [Header("Restraints")]
+    [SerializeField] private bool _canMove = true;
     
     //Dragging and zooming logic variables
     private Vector3 dragOrigin;
@@ -50,8 +53,16 @@ public class CameraMovement : MonoBehaviour
     }
     private void Update()
     {
+        if(!_canMove)
+        {
+            dragOrigin = _mainCamera.ScreenToWorldPoint(_touchOnePosition);
+            isDragging = false;
+            return;
+        }
+
         PanCamera();
         ZoomCamera();
+
     }
 
     //Camera Movement
@@ -80,7 +91,7 @@ public class CameraMovement : MonoBehaviour
             isZooming = true;
         }
 
-        if (isZooming)
+        if (isZooming && _canMove)
         {
             _currentPinchDistance = (_touchOnePosition - _touchTwoPosition).magnitude;
             float pinchDistanceDifference = _currentPinchDistance - startPinchDistance;
@@ -132,5 +143,10 @@ public class CameraMovement : MonoBehaviour
     public void UpdateTouchTwoIsPressed(bool isPressed)
     {
         _touchTwoIsPressed = isPressed;
+    }
+
+    public void SetCanMove(bool canMove)
+    {
+        _canMove = canMove;
     }
 }

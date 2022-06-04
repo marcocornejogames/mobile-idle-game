@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private OnBoolEvent _touchOneIsDownEvent;
     [SerializeField] private OnVector2Event _touchTwoPositionEvent;
     [SerializeField] private OnBoolEvent _touchTwoIsDownEvent;
+
+    //TOUCH 0
     private void OnTouch0(InputValue inputValue)
     {
         _touchOneIsDownEvent.Invoke(inputValue.isPressed);
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
         _touchOnePositionEvent.Invoke(touchPosition);
     }
 
+    //TOUCH 1
     private void OnTouch1(InputValue inputValue)
     {
         _touchTwoIsDownEvent.Invoke(inputValue.isPressed);
