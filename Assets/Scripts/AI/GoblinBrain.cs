@@ -124,9 +124,9 @@ public class GoblinBrain : MonoBehaviour
         }
     }
 
-    private void ClearTask()
+    private void ClearTask(Harvestable harvestable)
     {
-        _currentTask = null;
+        if(harvestable == _currentTask) _currentTask = null;
         _currentState = GoblinState.Idle;
     }
 
@@ -151,7 +151,7 @@ public class GoblinBrain : MonoBehaviour
             {
                 _currentTask.CancelInvoke();
             }
-            ClearTask();
+            ClearTask(_currentTask);
         }
 
         Destroy(this.gameObject);

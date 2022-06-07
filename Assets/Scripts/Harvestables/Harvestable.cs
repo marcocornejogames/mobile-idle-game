@@ -13,8 +13,13 @@ public class Harvestable : MonoBehaviour
 
     public float HarvestRange = 0.5f;
     public bool HarvestInProgress = false;
-    public UnityEvent OnHarvestSuccessful;
+    public UnityEvent<Harvestable> OnHarvestableSpawn;
+    public UnityEvent<Harvestable> OnHarvestSuccessful;
 
+    private void Awake()
+    {
+        OnHarvestableSpawn.Invoke(this);
+    }
     private void Start()
     {
        if (_taskOnAwake) Task();
@@ -36,7 +41,7 @@ public class Harvestable : MonoBehaviour
         HarvestInProgress = false;
         PlayerResourceManager.Instance.AddToPlayerWallet(_resourceAmount, _resourceType);
         GoblinTaskMaster.Instance.SetTaskDone(this);
-        OnHarvestSuccessful.Invoke();
+        OnHarvestSuccessful.Invoke(this);
         Destroy(this.gameObject);
     }
 
