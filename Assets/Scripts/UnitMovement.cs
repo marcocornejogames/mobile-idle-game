@@ -37,7 +37,7 @@ public class UnitMovement : MonoBehaviour
     public void Stop()
     {
         _hasTarget = false;
-        StopCoroutine(_movementCoroutine);
+        if(_movementCoroutine!= null) StopCoroutine(_movementCoroutine);
         StopMoving();
     }
 
@@ -87,4 +87,7 @@ public class UnitMovement : MonoBehaviour
     {
         return _hasTarget;
     }
+
+    //_______________________________Constraints
+
 }

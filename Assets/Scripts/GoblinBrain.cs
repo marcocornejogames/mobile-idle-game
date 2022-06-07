@@ -7,13 +7,16 @@ public class GoblinBrain : MonoBehaviour
     [Header("Component References")]
     [SerializeField] private UnitMovement _unitMovement;
 
-    [Header("Customization")]
+    [Header("Idle")]
     [SerializeField] private float _idleMovementRange = 2f;
-    [SerializeField] private float _idleWaitingTime = 3f;
+    [SerializeField] private float _idleWaitingTimeMIN = 3f;
+    [SerializeField] private float _idleWaitingTimeMAX = 5f;
     [Range(0, 1)] [SerializeField] private float _chanceOfIdleWaiting = 0.5f;
+
 
     [Header("Feedback")]
     [SerializeField] private GoblinState _currentState = GoblinState.Idle;
+
 
     private bool _isWaiting;
 
@@ -21,7 +24,7 @@ public class GoblinBrain : MonoBehaviour
     //Enums
     private enum GoblinState
     {
-        Idle
+        Idle,
     }
 
     // UNIT METHODS ______________________________________________________
@@ -50,12 +53,14 @@ public class GoblinBrain : MonoBehaviour
         if(!_isWaiting && Random.value <= _chanceOfIdleWaiting) //Chance to just wait for a bit
         {
             _isWaiting = true;
-            Invoke("StopWaiting", _idleWaitingTime);
+            Invoke("StopWaiting", Random.Range(_idleWaitingTimeMIN, _idleWaitingTimeMAX));
         }
 
         if(!_unitMovement.GetHasTarget() && !_isWaiting) //Is idling but not moving around right now
         {
-            _unitMovement.GoTo(MathTools.FindVector2WithinRange(transform.position, _idleMovementRange));
+            Vector2 newTargetPosition = MathTools.FindVector2WithinRange(transform.position, _idleMovementRange);
+            if (VillageBoundaries.Instance.IsInsideBounds(newTargetPosition)) _unitMovement.GoTo(newTargetPosition);
+            else _unitMovement.Stop();
         }
     }
 
@@ -63,7 +68,5 @@ public class GoblinBrain : MonoBehaviour
     {
         _isWaiting = false;
     }
-
-    //COROUTINES __________________________________________________
 
 }
