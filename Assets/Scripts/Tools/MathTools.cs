@@ -46,4 +46,18 @@ public static class MathTools
 
     }
 
+    public static Vector2 FindVector2WithinRange(Vector2 startingPosition, float range)
+    {
+        bool xNeg = (Random.value > 0.5f);
+        bool yNeg = (Random.value > 0.5f);
+
+        float diffX = Random.Range(0, (xNeg? -range : range));
+        float diffY = Random.Range(0, (yNeg ? -range : range));
+
+
+        Vector2 newPosition = new Vector2((startingPosition.x + diffX), (startingPosition.y + diffY));
+
+        return newPosition;
+    }
+
 }
