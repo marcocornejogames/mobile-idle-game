@@ -7,11 +7,11 @@ public  class PlayerResourceManager : MonoBehaviour
     public static PlayerResourceManager Instance;
     public enum ResourceType
     {
-        Magica,
-        Alchemy,
-        Occult,
-        Money,
-        Prestige
+        Food,
+        Wood,
+        Stone,
+        Knowledge,
+        Power
     }
 
     [Header("Component References")]
@@ -19,11 +19,11 @@ public  class PlayerResourceManager : MonoBehaviour
     [SerializeField] private PlayerResourceUI _ResourceUI;
 
     [Header("Multipliers")]
-    [SerializeField] private List<float> _magicaIncomeMultiplier;
-    [SerializeField] private List<float> _alchemyIncomeMultiplier;
-    [SerializeField] private List<float> _occultIncomeMultiplier;
-    [SerializeField] private List<float> _moneyIncomeMultiplier;
-    [SerializeField] private List<float> _prestigeIncomeMultiplier;
+    [SerializeField] private List<float> _foodIncomeMultiplier;
+    [SerializeField] private List<float> _woodIncomeMultiplier;
+    [SerializeField] private List<float> _stoneIncomeMultiplier;
+    [SerializeField] private List<float> _knowledgeIncomeMultiplier;
+    [SerializeField] private List<float> _powerIncomeMultiplier;
 
 
     //UNITY METHODS ________________________________________________________________________
@@ -36,11 +36,11 @@ public  class PlayerResourceManager : MonoBehaviour
         _playerWallet = GetComponent<PlayerWallet>();
 
         //Initialize lists
-        _magicaIncomeMultiplier = new List<float>();
-        _alchemyIncomeMultiplier = new List<float>();
-        _occultIncomeMultiplier = new List<float>();
-        _moneyIncomeMultiplier = new List<float>();
-        _prestigeIncomeMultiplier = new List<float>();
+        _foodIncomeMultiplier = new List<float>();
+        _woodIncomeMultiplier = new List<float>();
+        _stoneIncomeMultiplier = new List<float>();
+        _knowledgeIncomeMultiplier = new List<float>();
+        _powerIncomeMultiplier = new List<float>();
     }
 
     //CUSTOM METHODS _______________________________________________________________________
@@ -69,28 +69,27 @@ public  class PlayerResourceManager : MonoBehaviour
         Debug.Log("Adding to multiplier:" + typeOfResource);
         switch (typeOfResource)
         {
-            case ResourceType.Magica:
-                _magicaIncomeMultiplier.Add(amount);
+            case ResourceType.Food:
+                _foodIncomeMultiplier.Add(amount);
                 break;
 
-            case ResourceType.Alchemy:
-                _alchemyIncomeMultiplier.Add(amount);
+            case ResourceType.Wood:
+                _woodIncomeMultiplier.Add(amount);
                 break;
 
-            case ResourceType.Occult:
-                _occultIncomeMultiplier.Add(amount);
+            case ResourceType.Stone:
+                _stoneIncomeMultiplier.Add(amount);
                 break;
 
-            case ResourceType.Money:
-                _moneyIncomeMultiplier.Add(amount);
+            case ResourceType.Knowledge:
+                _knowledgeIncomeMultiplier.Add(amount);
                 break;
 
-            case ResourceType.Prestige:
-                _prestigeIncomeMultiplier.Add(amount);
+            case ResourceType.Power:
+                _powerIncomeMultiplier.Add(amount);
                 break;
         }
 
-        _ResourceUI.UpdateMultiplierTotal(ApplyMultipliers(1, GetMultipliers(typeOfResource)), typeOfResource);
     }
     public List<float> GetMultipliers(ResourceType typeOfResource)
     {
@@ -98,24 +97,24 @@ public  class PlayerResourceManager : MonoBehaviour
 
         switch (typeOfResource)
         {
-            case ResourceType.Magica:
-                multiplierList = _magicaIncomeMultiplier;
+            case ResourceType.Food:
+                multiplierList = _foodIncomeMultiplier;
                 break;
 
-            case ResourceType.Alchemy:
-                multiplierList = _alchemyIncomeMultiplier;
+            case ResourceType.Wood:
+                multiplierList = _woodIncomeMultiplier;
                 break;
 
-            case ResourceType.Occult:
-                multiplierList = _occultIncomeMultiplier;
+            case ResourceType.Stone:
+                multiplierList = _stoneIncomeMultiplier;
                 break;
 
-            case ResourceType.Money:
-                multiplierList = _moneyIncomeMultiplier;
+            case ResourceType.Knowledge:
+                multiplierList = _knowledgeIncomeMultiplier;
                 break;
 
-            case ResourceType.Prestige:
-                multiplierList = _prestigeIncomeMultiplier;
+            case ResourceType.Power:
+                multiplierList = _powerIncomeMultiplier;
                 break;
 
             default:

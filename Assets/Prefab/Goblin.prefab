@@ -49,10 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unitMovement: {fileID: 0}
+  _goblinLifespan: 20
   _idleMovementRange: 5
   _idleWaitingTimeMIN: 1
   _idleWaitingTimeMAX: 5
   _chanceOfIdleWaiting: 0.3
+  _currentTask: {fileID: 0}
   _currentState: 0
 --- !u!114 &6770958267948383426
 MonoBehaviour:
@@ -67,8 +69,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 0}
-  _unitAcceleration: 1
-  _unitMaxSpeed: 2
+  _unitAcceleration: 0.5
+  _unitMaxSpeed: 1
   _targetPositionMarginOfError: 0.1
   _hasTarget: 0
 --- !u!50 &6770958267948383427
@@ -88,7 +90,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4

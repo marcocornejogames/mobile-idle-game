@@ -7,80 +7,41 @@ using TMPro;
 public class PlayerResourceUI : MonoBehaviour
 {
     [Header("Component References")]
-    [SerializeField] private TextMeshProUGUI _totalMagicaText;
-    [SerializeField] private TextMeshProUGUI _incrementalMagicaText;
-    [SerializeField] private TextMeshProUGUI _totalAlchemyText;
-    [SerializeField] private TextMeshProUGUI _incrementalAlchemyText;
-    [SerializeField] private TextMeshProUGUI _totalOccultText;
-    [SerializeField] private TextMeshProUGUI _incrementalOccultText;
-    [SerializeField] private TextMeshProUGUI _totalMoneyText;
-    [SerializeField] private TextMeshProUGUI _incrementalMoneyText;
-    [SerializeField] private TextMeshProUGUI _totalPrestigeText;
-    [SerializeField] private TextMeshProUGUI _incrementalPrestigeText;
+    [SerializeField] private TextMeshProUGUI _totalFood;
+    [SerializeField] private TextMeshProUGUI _totalWood;
+    [SerializeField] private TextMeshProUGUI _totalStone;
+    [SerializeField] private TextMeshProUGUI _totalKnowledge;
+    [SerializeField] private TextMeshProUGUI _totalPower;
 
-    [Header("Customization")]
-    [SerializeField] private bool _displayNextIncrement = true;
-    [SerializeField] private bool _displayResourceTotal = true;
 
     public void UpdateResourceTotal(float amount, PlayerResourceManager.ResourceType typeOfResource)
     {
-        if (!_displayResourceTotal) return;
 
-        TextMeshProUGUI textToUpdate = _totalAlchemyText;
+        TextMeshProUGUI textToUpdate = _totalWood;
         switch (typeOfResource)
         {
-            case PlayerResourceManager.ResourceType.Magica:
-                textToUpdate = _totalMagicaText;
+            case PlayerResourceManager.ResourceType.Food:
+                textToUpdate = _totalFood;
                 break;
 
-            case PlayerResourceManager.ResourceType.Alchemy:
-                textToUpdate = _totalAlchemyText;
+            case PlayerResourceManager.ResourceType.Wood:
+                textToUpdate = _totalWood;
                 break;
 
-            case PlayerResourceManager.ResourceType.Occult:
-                textToUpdate = _totalOccultText;
+            case PlayerResourceManager.ResourceType.Stone:
+                textToUpdate = _totalStone;
                 break;
 
-            case PlayerResourceManager.ResourceType.Money:
-                textToUpdate = _totalMoneyText;
+            case PlayerResourceManager.ResourceType.Knowledge:
+                textToUpdate = _totalKnowledge;
                 break;
 
-            case PlayerResourceManager.ResourceType.Prestige:
-                textToUpdate = _totalPrestigeText;
+            case PlayerResourceManager.ResourceType.Power:
+                textToUpdate = _totalPower;
                 break;
         }
 
         textToUpdate.text = MathTools.ReadableNumber(amount);
     }
 
-    public void UpdateMultiplierTotal (float amount, PlayerResourceManager.ResourceType typeOfResource)
-    {
-        if (!_displayNextIncrement) return;
-
-        TextMeshProUGUI textToUpdate = _incrementalAlchemyText;
-        switch (typeOfResource)
-        {
-            case PlayerResourceManager.ResourceType.Magica:
-                textToUpdate = _incrementalMagicaText;
-                break;
-
-            case PlayerResourceManager.ResourceType.Alchemy:
-                textToUpdate = _incrementalAlchemyText;
-                break;
-
-            case PlayerResourceManager.ResourceType.Occult:
-                textToUpdate = _incrementalOccultText;
-                break;
-
-            case PlayerResourceManager.ResourceType.Money:
-                textToUpdate = _incrementalMoneyText;
-                break;
-
-            case PlayerResourceManager.ResourceType.Prestige:
-                textToUpdate = _incrementalPrestigeText;
-                break;
-        }
-
-        textToUpdate.text = MathTools.ReadableNumber(amount);
-    }
 }
