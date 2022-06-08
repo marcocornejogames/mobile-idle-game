@@ -14,6 +14,7 @@ public class UnitMovement : MonoBehaviour
 
     [Header("Feedback")]
     [SerializeField] private bool _hasTarget;
+    [SerializeField] private Vector2 _currentTarget;
 
     //Coroutines
     private IEnumerator _movementCoroutine;
@@ -29,9 +30,16 @@ public class UnitMovement : MonoBehaviour
 
     public void GoTo(Vector2 position)
     {
-        _hasTarget = true;
-        _movementCoroutine = Move(position);
-        StartCoroutine(_movementCoroutine);
+
+        if (!_hasTarget)
+        {
+            _currentTarget = position;
+            _hasTarget = true;
+            _movementCoroutine = Move();
+            StartCoroutine(_movementCoroutine);
+        }
+
+
     }
 
     public void Stop()
@@ -41,33 +49,32 @@ public class UnitMovement : MonoBehaviour
         StopMoving();
     }
 
-    private IEnumerator Move(Vector2 targetPosition)
+    private IEnumerator Move()
     {
         bool keepMoving = true;
         while(keepMoving)
         {
-            if (CheckWithinMargin(targetPosition))
+            if (CheckWithinMargin(_currentTarget))
             {
                 keepMoving = false;
                 Stop();
             }
 
 
-            MoveToPosition(targetPosition);
-
+            MoveToPosition();
             yield return null;
         }    
 
     }
 
-    private void MoveToPosition(Vector2 position)
+    private void MoveToPosition()
     {
-        Vector2 direction = position - new Vector2(transform.position.x, transform.position.y);
+        Vector2 direction = _currentTarget - new Vector2(transform.position.x, transform.position.y);
         Vector2 targetVelocity = _unitAcceleration * direction;
 
         if (_rigidbody.velocity.magnitude < _unitMaxSpeed) //Apply speed if not going too fast
         {
-            _rigidbody.AddForce(targetVelocity);
+            _rigidbody.AddForce(targetVelocity - _rigidbody.velocity);
         }
     }
 

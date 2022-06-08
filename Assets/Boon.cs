@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Boon : MonoBehaviour
 {
-    [Header("Component References")]
-
-
     [Header("Customization")]
     [SerializeField] private GameObject _boonToSpawn;
     [SerializeField] private float _boonSpawnDistance = 1f;
