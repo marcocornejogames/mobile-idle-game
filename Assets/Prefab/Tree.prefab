@@ -217,7 +217,7 @@ MonoBehaviour:
   _resourceType: 1
   _resourceAmount: 1
   _taskOnAwake: 1
-  _harvestTime: 5
+  _harvestTime: 3
   HarvestRange: 0.5
   HarvestInProgress: 0
   OnHarvestableSpawn:

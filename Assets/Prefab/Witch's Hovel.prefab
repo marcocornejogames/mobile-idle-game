@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3023245857408720330}
   - component: {fileID: 3023245857408720331}
   m_Layer: 0
-  m_Name: Witch's Hut
+  m_Name: Witch's Hovel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

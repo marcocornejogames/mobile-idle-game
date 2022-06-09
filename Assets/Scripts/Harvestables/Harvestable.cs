@@ -45,4 +45,10 @@ public class Harvestable : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+
+    public void ResourceBonus(int bonusMultiplier)
+    {
+        _resourceAmount *= bonusMultiplier;
+    }
+
 }
