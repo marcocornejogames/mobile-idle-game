@@ -2872,7 +2872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2791486937108549647, guid: 8043f2341cb14524cbf71a0e03cd94e6, type: 3}
       propertyPath: m_text
-      value: Stones that spawn near me are worth double (can stack!)
+      value: Stones that are harvested near me are worth double (can stack!)
       objectReference: {fileID: 0}
     - target: {fileID: 2791486937108549647, guid: 8043f2341cb14524cbf71a0e03cd94e6, type: 3}
       propertyPath: m_fontSize
