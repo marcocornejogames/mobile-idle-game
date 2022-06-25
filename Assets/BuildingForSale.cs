@@ -13,6 +13,8 @@ public class BuildingForSale : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameOfBuilding;
     [SerializeField] private TextMeshProUGUI _buildingDescription;
     [SerializeField] private ShopCostDisplay _costDisplay;
+    [SerializeField] private ResourceTransaction _resourceTransaction;
+    [SerializeField] private PurchaseBuilding _purchaseBuilding;
 
 
     private void Update()
@@ -21,5 +23,7 @@ public class BuildingForSale : MonoBehaviour
         _nameOfBuilding.text = _buildingInformation.BuildingName;
         _buildingDescription.text = _buildingInformation.BuildingDescription;
         _costDisplay.SetBuildingInfo(_buildingInformation);
+        _resourceTransaction.SetBuildingInfo(_buildingInformation);
+        _purchaseBuilding.SetBuildingInfo(_buildingInformation);
     }
 }

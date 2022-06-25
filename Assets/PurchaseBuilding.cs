@@ -13,4 +13,9 @@ public class PurchaseBuilding : MonoBehaviour
     {
         BuildingPlacement.Instance.SetBuildingToBePlaced(_buildingToBePurchased);
     }
+
+    public void SetBuildingInfo(BuildingInformation buildingInfo)
+    {
+        _buildingToBePurchased = buildingInfo;
+    }
 }
