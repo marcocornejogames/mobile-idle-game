@@ -23,4 +23,19 @@ public class Boon : MonoBehaviour
 
         Instantiate(_boonToSpawn, candidatePosition, Quaternion.identity);
     }
+
+    public void RegisterGoblin(GoblinBrain goblin)
+    {
+        if (Vector2.Distance(goblin.transform.position, this.transform.position) > _boonRange) return; //If spawned too far away, ignore;
+
+        bool isValidPosition = false;
+        Vector2 candidatePosition = Vector2.zero;
+        while (!isValidPosition)
+        {
+            candidatePosition = MathTools.FindVector2WithinRange(goblin.transform.position, _boonSpawnDistance);
+            if (VillageBoundaries.Instance.IsInsideBounds(candidatePosition)) isValidPosition = true;
+        }
+
+        Instantiate(_boonToSpawn, candidatePosition, Quaternion.identity);
+    }
 }

@@ -118,8 +118,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3023245857408720330}
-        m_TargetAssemblyTypeName: SpawnBonus, Assembly-CSharp
-        m_MethodName: RegisterSpawn
+        m_TargetAssemblyTypeName: HarvestSpawnBonus, Assembly-CSharp
+        m_MethodName: RegisterHarvestOrSpawn
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -23,6 +23,9 @@ public class GoblinBrain : MonoBehaviour
     [Header("Feedback")]
     [SerializeField] private GoblinState _currentState = GoblinState.Idle;
 
+    [Header("Events")]
+    [SerializeField] private GoblinScriptableEvent _onGoblinSpawnEvent;
+    [SerializeField] private GoblinScriptableEvent _onGoblinDeathEvent;
 
     private bool _isWaiting;
 
@@ -38,6 +41,7 @@ public class GoblinBrain : MonoBehaviour
     private void Awake()
     {
         _unitMovement = GetComponent<UnitMovement>();
+        _onGoblinSpawnEvent.Invoke(this);
         Invoke("Die", _goblinLifespan);
     }
 
@@ -144,6 +148,8 @@ public class GoblinBrain : MonoBehaviour
 
     private void Die()
     {
+        _onGoblinDeathEvent.Invoke(this);
+
         if (_currentTask != null)
         {
             GoblinTaskMaster.Instance.GiveUp(_currentTask);
@@ -155,5 +161,11 @@ public class GoblinBrain : MonoBehaviour
         }
 
         Destroy(this.gameObject);
+    }
+
+    //ACCESS _____________________________________________________________
+    public UnitMovement GetUnitMovement()
+    {
+        return _unitMovement;
     }
 }

@@ -95,6 +95,11 @@ public class UnitMovement : MonoBehaviour
         return _hasTarget;
     }
 
-    //_______________________________Constraints
+    //_______________________________Boons
+
+    public void BoostSpeed(float speedBoost)
+    {
+        _unitMaxSpeed *= (1 + speedBoost);
+    }
 
 }

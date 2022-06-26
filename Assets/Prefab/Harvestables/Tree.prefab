@@ -237,4 +237,16 @@ MonoBehaviour:
         m_CallState: 2
   OnHarvestSuccessful:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4e9ad6fdba21f87419f67a4e7d3fa2f3, type: 2}
+        m_TargetAssemblyTypeName: ScriptableEvent`1[[Harvestable, Assembly-CSharp
+        m_MethodName: Invoke
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

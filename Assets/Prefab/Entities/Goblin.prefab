@@ -55,6 +55,8 @@ MonoBehaviour:
   _chanceOfIdleWaiting: 0.3
   _currentTask: {fileID: 0}
   _currentState: 0
+  _onGoblinSpawnEvent: {fileID: 11400000, guid: 0fb5d6f051152aa47997ddbf46bbdc00, type: 2}
+  _onGoblinDeathEvent: {fileID: 11400000, guid: 1fce5a7eb5926b946bd648999d6e01d3, type: 2}
 --- !u!114 &6770958267948383426
 MonoBehaviour:
   m_ObjectHideFlags: 0
