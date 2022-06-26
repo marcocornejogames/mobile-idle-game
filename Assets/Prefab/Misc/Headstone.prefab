@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7691663910418639045}
   - component: {fileID: 5636166872712839999}
   - component: {fileID: 3334291723717536357}
+  - component: {fileID: 8100427048789695136}
   m_Layer: 0
   m_Name: Headstone
   m_TagString: Untagged
@@ -98,3 +99,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lifeSpan: 600
+--- !u!114 &8100427048789695136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7617256773992121780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00e1dc0b89ac3146b0e5c6342a25e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resourceType: 0
+  _resourceAmount: 0
+  _taskOnAwake: 0
+  _harvestTime: 5
+  HarvestRange: 0.5
+  HarvestInProgress: 0
+  OnHarvestableSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: c88444b4d3ca0d348a1b52483c2a415a, type: 2}
+        m_TargetAssemblyTypeName: ScriptableEvent`1[[Harvestable, Assembly-CSharp
+        m_MethodName: Invoke
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHarvestSuccessful:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

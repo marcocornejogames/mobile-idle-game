@@ -13,10 +13,12 @@ public class Dandelion : MonoBehaviour
 
     [Header("Component References")]
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Harvestable _harvestable;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _harvestable = GetComponent<Harvestable>();
 
         Invoke("Die", _lifeSpan);
 
@@ -32,6 +34,7 @@ public class Dandelion : MonoBehaviour
 
     private void Die()
     {
+        _harvestable.OnHarvestSuccessful.Invoke(_harvestable);
         Destroy(this.gameObject);
     }
 }

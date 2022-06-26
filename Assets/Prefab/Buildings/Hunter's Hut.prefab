@@ -101,6 +101,7 @@ MonoBehaviour:
   _boonToSpawn: {fileID: 1050519514817483290, guid: 190c861d43afbe04b8b773a52ee4c02a, type: 3}
   _boonSpawnDistance: 1
   _boonRange: 10
+  _boonChance: 0.1
 --- !u!114 &6849348501002816610
 MonoBehaviour:
   m_ObjectHideFlags: 0
