@@ -15,11 +15,10 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float _zoomFactor = 0.5f;
 
     [Header("Feedback")]
-    [SerializeField] private Vector2 _touchOnePosition;
-    [SerializeField] private bool _touchOneIsPressed;
-    [SerializeField] private Vector2 _touchTwoPosition;
-    [SerializeField] private bool _touchTwoIsPressed;
-    [SerializeField] private float _currentPinchDistance;
+    [SerializeField] private Vector2 _mousePos;
+    [SerializeField] private bool _middleButtonDown;
+    [SerializeField] private float _scrollValue;
+
 
     [Header("Restraints")]
     [SerializeField] private bool _canMove = true;
@@ -27,8 +26,7 @@ public class CameraMovement : MonoBehaviour
     //Dragging and zooming logic variables
     private Vector3 dragOrigin;
     private bool isDragging = false;
-    private float startPinchDistance;
-    private bool isZooming = false;
+
 
     //Background 
     private float _backgroundMinX;
@@ -55,7 +53,7 @@ public class CameraMovement : MonoBehaviour
     {
         if(!_canMove)
         {
-            dragOrigin = _mainCamera.ScreenToWorldPoint(_touchOnePosition);
+            dragOrigin = _mainCamera.ScreenToWorldPoint(_mousePos);
             isDragging = false;
             return;
         }
@@ -68,37 +66,24 @@ public class CameraMovement : MonoBehaviour
     //Camera Movement
     private void PanCamera()
     {
-        if(_touchOneIsPressed && !isDragging && !_touchTwoIsPressed)
+        if(_middleButtonDown && !isDragging)
         {
-            dragOrigin = _mainCamera.ScreenToWorldPoint(_touchOnePosition);
+            dragOrigin = _mainCamera.ScreenToWorldPoint(_mousePos);
             isDragging = true;
         }
 
-        if(isDragging && !_touchTwoIsPressed)
+        if(isDragging)
         {
-            Vector3 difference = dragOrigin - _mainCamera.ScreenToWorldPoint(_touchOnePosition);
+            Vector3 difference = dragOrigin - _mainCamera.ScreenToWorldPoint(_mousePos);
             _mainCamera.transform.position = ClampCamera(_mainCamera.transform.position + difference);
         }
 
-        if (!_touchOneIsPressed || _touchTwoIsPressed) isDragging = false;
+        if (!_middleButtonDown) isDragging = false;
     }
 
     private void ZoomCamera()
     {
-        if (_touchOneIsPressed && _touchTwoIsPressed && !isZooming)
-        {
-            startPinchDistance = (_touchOnePosition - _touchTwoPosition).magnitude;
-            isZooming = true;
-        }
-
-        if (isZooming && _canMove)
-        {
-            _currentPinchDistance = (_touchOnePosition - _touchTwoPosition).magnitude;
-            float pinchDistanceDifference = _currentPinchDistance - startPinchDistance;
-            ApplyZoom(pinchDistanceDifference * _zoomFactor);
-        }
-
-        if (!_touchOneIsPressed || !_touchTwoIsPressed) isZooming = false;
+        if (_canMove) ApplyZoom(_scrollValue * _zoomFactor);
     }
 
     private void ApplyZoom(float increment)
@@ -125,24 +110,19 @@ public class CameraMovement : MonoBehaviour
 
     }
     //EVENT LISTENERS _________________________________________________
-    public void UpdateTouchOnePosition(Vector2 position)
+    public void UpdateMousePos(Vector2 position)
     {
-        _touchOnePosition = position;
+        _mousePos = position;
     }
 
-    public void UpdateTouchOneIsPressed(bool isPressed)
+    public void UpdateMiddleButton(bool isPressed)
     {
-        _touchOneIsPressed = isPressed;
+        _middleButtonDown = isPressed;
     }
 
-    public void UpdateTouchTwoPosition(Vector2 position)
+    public void UpdateScrollValue(Vector2 value)
     {
-        _touchTwoPosition = position;
-    }
-
-    public void UpdateTouchTwoIsPressed(bool isPressed)
-    {
-        _touchTwoIsPressed = isPressed;
+        _scrollValue = value.y;
     }
 
     public void SetCanMove(bool canMove)

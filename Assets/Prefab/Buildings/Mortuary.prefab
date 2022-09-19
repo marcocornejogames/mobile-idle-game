@@ -128,5 +128,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _typeOfResourceBonus: 3
   _bonusAmount: 1
-  _spawnBonusRange: 10
+  _spawnBonusRange: 5
   _lifetimeBonus: 0

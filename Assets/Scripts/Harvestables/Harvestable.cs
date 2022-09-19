@@ -32,7 +32,7 @@ public class Harvestable : MonoBehaviour
 
     public void TryHarvest()
     {
-        Debug.Log("Harvesting Started");
+        //Debug.Log("Harvesting Started");
         HarvestInProgress = true;
         Invoke("Harvest", _harvestTime);
     }

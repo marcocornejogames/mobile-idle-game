@@ -6,32 +6,34 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Control Broadcast Events")]
-    [SerializeField] private OnVector2Event _touchOnePositionEvent;
-    [SerializeField] private OnBoolEvent _touchOneIsDownEvent;
-    [SerializeField] private OnVector2Event _touchTwoPositionEvent;
-    [SerializeField] private OnBoolEvent _touchTwoIsDownEvent;
+    [SerializeField] private OnVector2Event _mousePosEvent;
+    [SerializeField] private OnBoolEvent _onClickEvent;
+    [SerializeField] private OnBoolEvent _onMiddleClickEvent;
+    [SerializeField] private OnVector2Event _onScrollEvent;
 
-    //TOUCH 0
-    private void OnTouch0(InputValue inputValue)
+    private void OnClick(InputValue inputValue)
     {
-        _touchOneIsDownEvent.Invoke(inputValue.isPressed);
+        _onClickEvent.Invoke(inputValue.isPressed);
+        //Debug.Log("LB Down = " + inputValue.isPressed);
     }
 
-    private void OnTouch0Position(InputValue inputValue)
+    private void OnMousePosition(InputValue inputValue)
     {
-        Vector2 touchPosition = inputValue.Get<Vector2>();
-        _touchOnePositionEvent.Invoke(touchPosition);
+        Vector2 mousPos = inputValue.Get<Vector2>();
+        _mousePosEvent.Invoke(mousPos);
+        //Debug.Log("Mouse Pos = " + mousPos);
     }
 
-    //TOUCH 1
-    private void OnTouch1(InputValue inputValue)
+    private void OnMiddleClick(InputValue inputValue)
     {
-        _touchTwoIsDownEvent.Invoke(inputValue.isPressed);
+        _onMiddleClickEvent.Invoke(inputValue.isPressed);
+        //Debug.Log("MB Down = " + inputValue.isPressed);
     }
 
-    private void OnTouch1Position(InputValue inputValue)
+    private void OnScroll(InputValue inputValue)
     {
-        Vector2 touchPosition = inputValue.Get<Vector2>();
-        _touchTwoPositionEvent.Invoke(touchPosition);
+        Vector2 scrollValue = inputValue.Get<Vector2>();
+        _onScrollEvent.Invoke(scrollValue);
+        //Debug.Log("Scroll Value = " + scrollValue);
     }
 }

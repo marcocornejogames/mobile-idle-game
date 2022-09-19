@@ -42,7 +42,9 @@ public class GoblinBrain : MonoBehaviour
     {
         _unitMovement = GetComponent<UnitMovement>();
         _onGoblinSpawnEvent.Invoke(this);
+        Debug.Log("Goblin lifespan = " + _goblinLifespan);
         Invoke("Die", _goblinLifespan);
+
     }
 
     private void Update()
@@ -168,4 +170,16 @@ public class GoblinBrain : MonoBehaviour
     {
         return _unitMovement;
     }
+
+    public float GetLifespan()
+    {
+        return _goblinLifespan;
+    }
+
+    public void SetUnitLifespan(float newLifespan)
+    {
+        _goblinLifespan = newLifespan;
+    }
+
+ 
 }

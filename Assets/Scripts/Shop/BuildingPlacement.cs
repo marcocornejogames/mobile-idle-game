@@ -12,8 +12,8 @@ public class BuildingPlacement : MonoBehaviour
     [SerializeField] private Image _buildingPlacementImage;
     [SerializeField] private TextMeshProUGUI _nameOfBuilding;
     [SerializeField] private InputActionAsset _input;
-    [SerializeField] private string _placeBuildingKeyName = "Touch0DoubleTap";
-    [SerializeField] private string _touchPositionKeyName = "Touch0Position";
+    [SerializeField] private string _placeBuildingKeyName = "Click";
+    [SerializeField] private string _touchPositionKeyName = "MousePosition";
 
     [Header("Feedback")]
     [SerializeField] private BuildingInformation _buildingInformation;

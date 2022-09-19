@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speedBonus: 0.1
+  _limitedTime: 0
   _lifeSpan: 60
+  _range: 5
 --- !u!114 &6275351071658806880
 MonoBehaviour:
   m_ObjectHideFlags: 0

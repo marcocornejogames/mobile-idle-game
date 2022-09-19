@@ -100,7 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boonToSpawn: {fileID: 7617256773992121780, guid: ebbdaab3da73bf04e8887633accfd050, type: 3}
   _boonSpawnDistance: 0
-  _boonRange: 3
+  _boonRange: 5
+  _boonChance: 1
 --- !u!114 &708807894946046716
 MonoBehaviour:
   m_ObjectHideFlags: 0

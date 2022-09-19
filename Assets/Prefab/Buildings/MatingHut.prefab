@@ -99,6 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _goblinPrefab: {fileID: 6770958267948383484, guid: 81e50325bb519a7468fec3f995868315, type: 3}
   _inputAction: {fileID: -944628639613478452, guid: 9864464c2d6935f4d8dbb7a22b23444d, type: 3}
-  _tapActionName: Touch0DoubleTap
+  _onClickActionName: Click
   _gobsPerSec: 1
   _gobsPerTap: 1

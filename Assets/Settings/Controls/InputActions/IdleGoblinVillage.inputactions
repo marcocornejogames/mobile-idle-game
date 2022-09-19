@@ -1,21 +1,30 @@
 {
-    "name": "IdleMageAcademy",
+    "name": "IdleGoblinVillage",
     "maps": [
         {
             "name": "Player",
             "id": "7876d16e-a6d2-45dd-8178-4caeacca81fb",
             "actions": [
                 {
-                    "name": "Touch0",
+                    "name": "Click",
                     "type": "Value",
                     "id": "cfeaee23-81a0-40fa-af9c-c988f251483b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Touch0DoubleTap",
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "e922d04c-2693-4ebd-9c9d-cd7a64643771",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "DoubleClick",
                     "type": "Button",
                     "id": "c6888a10-a184-42bf-8c82-83dd177fbdc9",
                     "expectedControlType": "Button",
@@ -24,16 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Touch0Hold",
-                    "type": "Value",
-                    "id": "ff6c4042-3079-454d-9c5e-056a75644f6f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold(duration=1)",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Touch1",
+                    "name": "MiddleClick",
                     "type": "Value",
                     "id": "9cdf64d8-35a3-45de-91f2-89a360660d12",
                     "expectedControlType": "Button",
@@ -42,18 +42,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Touch0Position",
+                    "name": "Scroll",
                     "type": "Value",
                     "id": "2a0eabca-a5ba-43d8-9dce-fe483a97b182",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Touch1Position",
-                    "type": "Value",
-                    "id": "43f762f2-504a-4ca0-a080-b50be353c386",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -64,66 +55,55 @@
                 {
                     "name": "",
                     "id": "484dc1eb-e49a-4799-87c0-4ac005de5f98",
-                    "path": "<Touchscreen>/touch0/press",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Touch0",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "43a1eec1-ebb4-4a48-b035-f8174f6c77df",
-                    "path": "<Touchscreen>/touch0/position",
+                    "path": "<Mouse>/scroll",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Touch0Position",
+                    "action": "Scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "0c32e62c-c5cb-4364-8adb-1a1b38a3f1b2",
-                    "path": "<Touchscreen>/touch1/press",
+                    "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Touch1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c79b3b5f-55f8-43e3-9618-b3664d21f6da",
-                    "path": "<Touchscreen>/touch1/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch1Position",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7d37856a-1f0d-4e7e-aab9-7679ae6210de",
-                    "path": "<Touchscreen>/Press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Touch0Hold",
+                    "action": "MiddleClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "1a01c641-187e-4dbe-a0d0-737c4b2fca4f",
-                    "path": "<Touchscreen>/touch0/press",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Touch0DoubleTap",
+                    "action": "DoubleClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "526e220a-13b4-4efa-b158-c68a5cf8ffb5",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

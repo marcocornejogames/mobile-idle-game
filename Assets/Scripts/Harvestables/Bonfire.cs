@@ -6,13 +6,14 @@ public class Bonfire : MonoBehaviour
 {
     [Header("Customization")]
     [SerializeField] private float _speedBonus = 0.1f;
+    [SerializeField] private bool _limitedTime = false;
     [SerializeField] private float _lifeSpan = 60f;
     [SerializeField] private float _range = 1f;
 
 
     private void Awake()
     {
-        Invoke("Die", _lifeSpan);
+        if(_limitedTime) Invoke("Die", _lifeSpan);
     }
 
     public void RegisterSpawn(GoblinBrain goblin)
