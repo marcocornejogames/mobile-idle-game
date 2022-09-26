@@ -33,10 +33,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MiddleClick",
+                    "name": "LeftClick",
                     "type": "Value",
                     "id": "9cdf64d8-35a3-45de-91f2-89a360660d12",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -77,11 +77,11 @@
                 {
                     "name": "",
                     "id": "0c32e62c-c5cb-4364-8adb-1a1b38a3f1b2",
-                    "path": "<Mouse>/middleButton",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MiddleClick",
+                    "action": "LeftClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

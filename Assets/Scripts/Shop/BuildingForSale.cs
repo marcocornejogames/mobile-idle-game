@@ -16,7 +16,16 @@ public class BuildingForSale : MonoBehaviour
     [SerializeField] private ResourceTransaction _resourceTransaction;
     [SerializeField] private PurchaseBuilding _purchaseBuilding;
 
+    [Header("Incrementation")]
+    [SerializeField] private IncrementCurve _curve;
 
+    [Header("Feedback")]
+    [SerializeField] private int _numberOwned = 0;
+
+    private void Awake()
+    {
+        _curve = GetComponent<IncrementCurve>();
+    }
     private void Update()
     {
         _shopIcon.sprite = _buildingInformation.BuildingShopImage;
@@ -25,5 +34,14 @@ public class BuildingForSale : MonoBehaviour
         _costDisplay.SetBuildingInfo(_buildingInformation);
         _resourceTransaction.SetBuildingInfo(_buildingInformation);
         _purchaseBuilding.SetBuildingInfo(_buildingInformation);
+    }
+
+    public void OnBuildingPurchase()
+    {
+        _numberOwned++;
+        _curve.Increment(1);
+        BuildingInformation updatedBuilding = Instantiate(_buildingInformation);
+        updatedBuilding.ApplyCostMultiplier(_curve.ValueAtCurrentIncrement());
+        _buildingInformation = updatedBuilding;
     }
 }

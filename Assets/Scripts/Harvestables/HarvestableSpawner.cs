@@ -11,15 +11,21 @@ public class HarvestableSpawner : MonoBehaviour
     [SerializeField] private int _harvestablesPerSec = 2;
     [SerializeField] private float _radiusRange = 20f;
     [SerializeField] private int _harvestableLimit = 50;
+    [SerializeField] private bool _populateOnStart = true;
 
     private List<GameObject> _allActiveHarvestables;
 
     private void Awake()
     {
         _allActiveHarvestables = new List<GameObject>();
+
         Invoke("Cooldown", 1);
     }
 
+    private void Start()
+    {
+        if (_populateOnStart) Populate();
+    }
     private void Update()
     {
         _allActiveHarvestables.RemoveAll(GameObject => GameObject == null);
@@ -53,5 +59,13 @@ public class HarvestableSpawner : MonoBehaviour
         return candidatePosition;
     }
 
-
+    private void Populate()
+    {
+        for (int i = 0; i < _harvestableLimit; i++)
+        {
+            if (_allActiveHarvestables.Count >= _harvestableLimit) continue;
+            GameObject newObject = Instantiate(_harvestablePrefab, GetRandomPosition(), Quaternion.identity);
+            _allActiveHarvestables.Add(newObject);
+        }
+    }
 }

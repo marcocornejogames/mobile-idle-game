@@ -16,7 +16,7 @@ public class IncrementCurve : MonoBehaviour
 
     private void Awake()
     {
-        _currentIncrement = _incrementFactor;
+
     }
 
     private void Update()

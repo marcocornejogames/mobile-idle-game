@@ -52,4 +52,13 @@ public class BuildingInformation : ScriptableObject
 
         return toBeReturned;
     }
+
+    public void ApplyCostMultiplier(float multiplier)
+    {
+        foodCost *= (int)multiplier;
+        woodCost *= (int)multiplier;
+        stoneCost *= (int)multiplier;
+        knowledgeCost *= (int)multiplier;
+        powerCost *= (int)multiplier;
+    }
 }

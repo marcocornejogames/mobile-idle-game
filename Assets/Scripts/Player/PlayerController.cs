@@ -24,10 +24,10 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Mouse Pos = " + mousPos);
     }
 
-    private void OnMiddleClick(InputValue inputValue)
+    private void OnLeftClick(InputValue inputValue)
     {
         _onMiddleClickEvent.Invoke(inputValue.isPressed);
-        //Debug.Log("MB Down = " + inputValue.isPressed);
+        //Debug.Log("LMB Down = " + inputValue.isPressed);
     }
 
     private void OnScroll(InputValue inputValue)

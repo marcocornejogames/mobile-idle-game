@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _harvestablePrefab: {fileID: 1653306822408317162, guid: bc235ee013099924da5f74219b2d1e6c, type: 3}
-  _harvestablesPerSec: 2
-  _radiusRange: 3
-  _harvestableLimit: 10
+  _harvestablesPerSec: 1
+  _radiusRange: 2
+  _harvestableLimit: 3
