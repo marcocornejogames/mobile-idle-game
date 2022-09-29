@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5371158682414092390}
   - component: {fileID: 5371158682414092391}
   - component: {fileID: 5371158682414092388}
+  - component: {fileID: 5759481894577368795}
   m_Layer: 0
   m_Name: Gatherer's Hut
   m_TagString: Untagged
@@ -74,9 +75,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.26103628, g: 0.3679245, b: 0.18916874, a: 1}
+  m_SortingOrder: 9
+  m_Sprite: {fileID: 21300000, guid: 535e38132eed0164db5f29d1e6d97f8a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -130,3 +131,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5759481894577368795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5371158682414092389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65e77cedcb988946b1e8e306802e302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _renderer: {fileID: 0}
+  _sprites: []
+  _randomizeFlip: 1

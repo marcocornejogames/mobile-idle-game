@@ -6,6 +6,8 @@ public class UnitMovement : MonoBehaviour
 {
     [Header("Component References")]
     [SerializeField] private Rigidbody2D _rigidbody;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     [Header("Customization")]
     [SerializeField] private float _unitAcceleration = 2f;
@@ -24,9 +26,9 @@ public class UnitMovement : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponentInChildren<Animator>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
-
-
 
     public void GoTo(Vector2 position)
     {
@@ -76,11 +78,15 @@ public class UnitMovement : MonoBehaviour
         {
             _rigidbody.AddForce(targetVelocity - _rigidbody.velocity);
         }
+
+        _animator.SetBool("IsMoving", true);
+        _spriteRenderer.flipX = _rigidbody.velocity.x < 0;
     }
 
     private void StopMoving()
     {
         _rigidbody.velocity = Vector2.zero;
+        _animator.SetBool("IsMoving", false);
     }
 
     private bool CheckWithinMargin(Vector2 position)

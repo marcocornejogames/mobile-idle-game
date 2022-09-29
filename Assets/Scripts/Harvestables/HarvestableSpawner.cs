@@ -61,9 +61,9 @@ public class HarvestableSpawner : MonoBehaviour
 
     private void Populate()
     {
-        for (int i = 0; i < _harvestableLimit; i++)
+        for (int i = 0; i < (_harvestableLimit- _harvestablesPerSec); i++)
         {
-            if (_allActiveHarvestables.Count >= _harvestableLimit) continue;
+            if (_allActiveHarvestables.Count >= _harvestableLimit) return;
             GameObject newObject = Instantiate(_harvestablePrefab, GetRandomPosition(), Quaternion.identity);
             _allActiveHarvestables.Add(newObject);
         }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6349119709516296980}
   - component: {fileID: 7294216921487933944}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 359e957523e1f4d40b3f5e1c5c6d6d6b, type: 3}
   - {fileID: 21300000, guid: 418ceb0cef1eeca41bbf461eb64fed09, type: 3}
   - {fileID: 21300000, guid: 656c24e5d27f4ea4293fab74fe9aa250, type: 3}
+  _randomizeFlip: 1
 --- !u!212 &7294216921487933944
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 359e957523e1f4d40b3f5e1c5c6d6d6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -150,7 +151,7 @@ MonoBehaviour:
   _resourceType: 2
   _resourceAmount: 1
   _taskOnAwake: 1
-  _harvestTime: 5
+  _harvestTime: 3
   HarvestRange: 0.5
   HarvestInProgress: 0
   OnHarvestableSpawn:

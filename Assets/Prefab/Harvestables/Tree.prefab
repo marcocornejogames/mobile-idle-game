@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 165c28078e680044998ae862917899d6, type: 3}
   m_Color: {r: 0.61765397, g: 0.8301887, b: 0.54432184, a: 1}
   m_FlipX: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 165c28078e680044998ae862917899d6, type: 3}
   - {fileID: 21300000, guid: 76f602df39af0cc499bd9c6976771080, type: 3}
   - {fileID: 21300000, guid: 39a6d8069eaa13f4abd28cd4a8718e61, type: 3}
+  _randomizeFlip: 1
 --- !u!1 &3237357899511555032
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +151,7 @@ MonoBehaviour:
   _resourceType: 1
   _resourceAmount: 1
   _taskOnAwake: 1
-  _harvestTime: 3
+  _harvestTime: 2
   HarvestRange: 0.5
   HarvestInProgress: 0
   OnHarvestableSpawn:

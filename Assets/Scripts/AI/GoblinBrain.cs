@@ -7,6 +7,7 @@ public class GoblinBrain : MonoBehaviour
     [Header("Component References")]
     [SerializeField] private UnitMovement _unitMovement;
 
+
     [Header("Customization")]
     [SerializeField] private float _goblinLifespan = 25f;
 
@@ -41,9 +42,11 @@ public class GoblinBrain : MonoBehaviour
     private void Awake()
     {
         _unitMovement = GetComponent<UnitMovement>();
+
         _onGoblinSpawnEvent.Invoke(this);
         //Debug.Log("Goblin lifespan = " + _goblinLifespan);
         Invoke("Die", _goblinLifespan);
+
 
     }
 

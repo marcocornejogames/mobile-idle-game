@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class MatingHut : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class MatingHut : MonoBehaviour
     [Header("Customization")]
     [SerializeField] private int _gobsPerSec = 1;
     [SerializeField] private int _gobsPerTap = 1;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent _onGoblinSpawn;
 
     private void Awake()
     {
@@ -26,6 +30,7 @@ public class MatingHut : MonoBehaviour
         for (int i = 0; i < _gobsPerSec; i++)
         {
             Instantiate(_goblinPrefab, this.transform.position, Quaternion.identity);
+            _onGoblinSpawn.Invoke();
         }
 
         Invoke("Cooldown", 1);
@@ -41,6 +46,7 @@ public class MatingHut : MonoBehaviour
         for (int i = 0; i < _gobsPerTap; i++)
         {
             Instantiate(_goblinPrefab, this.transform.position, Quaternion.identity);
+            _onGoblinSpawn.Invoke();
         }
     }
 }
