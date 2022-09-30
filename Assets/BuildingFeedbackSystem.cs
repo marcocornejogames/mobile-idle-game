@@ -6,6 +6,7 @@ public class BuildingFeedbackSystem : MonoBehaviour
 {
     [Header("Component References")]
     [SerializeField] private LineRenderer _circleRenderer;
+    [SerializeField] private BuildingFeedbackDisplay _feedbackDisplay;
 
     [Header("Customization")]
     [SerializeField] private int _numberOfSteps = 100;
@@ -78,6 +79,50 @@ public class BuildingFeedbackSystem : MonoBehaviour
         _circleRenderer.enabled = false;
     }
 
+    //FEEDBACK DISPLAY ___________________________________________________
+
+    private void TryDisplayInfo()
+    {
+        _feedbackDisplay.gameObject.SetActive(true);
+
+        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(_mousePos);
+        List<Collider2D> allCollided = new List<Collider2D>();
+
+        if (Physics2D.OverlapCircle(mouseWorldPos, 0.5f, _contactFilter, allCollided) > 0) 
+        {
+            foreach (Collider2D collider in allCollided) // LOOK FOR BUILDINGS
+            {
+                if (collider.TryGetComponent<BuildingFeedbackData>(out BuildingFeedbackData building))
+                {
+                    DisplayBuildingInfo();
+                    return;
+                }
+            }
+
+            foreach (Collider2D collider in allCollided) // LOOK FOR GOBLIN
+            {
+                if (collider.TryGetComponent<GoblinBrain>(out GoblinBrain goblin))
+                {
+                    DisplayGoblinInfo();
+                    return;
+                }
+            }
+        }
+
+        _feedbackDisplay.gameObject.SetActive(false);
+    }
+
+
+    private void DisplayBuildingInfo()
+    {
+
+    }
+
+    private void DisplayGoblinInfo()
+    {
+
+    }
+
     //UPDATE PLAYER INPUT _____________________________________________
     public void UpdateMousePosition(Vector2 mousePos)
     {
@@ -86,7 +131,7 @@ public class BuildingFeedbackSystem : MonoBehaviour
 
     public void OnClick(bool isDown)
     {
-
+        if (isDown) TryDisplayInfo();
     }
 
 
