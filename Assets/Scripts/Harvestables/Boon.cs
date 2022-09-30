@@ -2,14 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BuildingFeedbackData))]
 public class Boon : MonoBehaviour
 {
+    [Header("Component References")]
+    [SerializeField] private BuildingFeedbackData _feedbackSystem;
+
     [Header("Customization")]
     [SerializeField] private GameObject _boonToSpawn;
     [SerializeField] private float _boonSpawnDistance = 1f;
     [SerializeField] private float _boonRange = 5f;
     [SerializeField][Range(0,1)] private float _boonChance = 1f;
 
+    private void Awake()
+    {
+        _feedbackSystem = GetComponent<BuildingFeedbackData>();
+        _feedbackSystem.SetRadius(_boonRange);
+    }
     public void RegisterSpawn(Harvestable harvestable)
     {
         if (Vector2.Distance(harvestable.transform.position, this.transform.position) > _boonRange) return; //If spawned too far away, ignore;

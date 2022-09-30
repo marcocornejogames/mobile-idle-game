@@ -16,7 +16,7 @@ public class CameraMovement : MonoBehaviour
 
     [Header("Feedback")]
     [SerializeField] private Vector2 _mousePos;
-    [SerializeField] private bool _leftButtonDown;
+    [SerializeField] private bool _rightButtonDown;
     [SerializeField] private float _scrollValue;
 
 
@@ -66,7 +66,7 @@ public class CameraMovement : MonoBehaviour
     //Camera Movement
     private void PanCamera()
     {
-        if(_leftButtonDown && !isDragging)
+        if(_rightButtonDown && !isDragging)
         {
             //Debug.Log("Started dragging");
             dragOrigin = _mainCamera.ScreenToWorldPoint(_mousePos);
@@ -79,7 +79,7 @@ public class CameraMovement : MonoBehaviour
             _mainCamera.transform.position = ClampCamera(_mainCamera.transform.position + difference);
         }
 
-        if (!_leftButtonDown) isDragging = false;
+        if (!_rightButtonDown) isDragging = false;
     }
 
     private void ZoomCamera()
@@ -116,10 +116,9 @@ public class CameraMovement : MonoBehaviour
         _mousePos = position;
     }
 
-    public void UpdateLeftButton(bool isPressed)
+    public void UpdateRightButton(bool isPressed)
     {
-        _leftButtonDown = isPressed;
-        //Debug.Log("Left pressed?" + isPressed);
+        _rightButtonDown = isPressed;
     }
 
     public void UpdateScrollValue(Vector2 value)

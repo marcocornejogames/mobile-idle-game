@@ -48,8 +48,15 @@ public class BuildingPlacement : MonoBehaviour
     {
         if (this.gameObject.activeSelf == false) return;
         Vector2 touchPosition = Camera.main.ScreenToWorldPoint(_input.FindAction(_touchPositionKeyName).ReadValue<Vector2>());
-        Instantiate(_buildingInformation.BuildingPrefab, touchPosition, Quaternion.identity);
+        GameObject buildingPlaced = Instantiate(_buildingInformation.BuildingPrefab, touchPosition, Quaternion.identity);
+
+
+        if (buildingPlaced.TryGetComponent<BuildingFeedbackData>(out BuildingFeedbackData feedbackData))
+        {
+            feedbackData.SetBuildingInfo(_buildingInformation);
+        }
 
         _onBuildingPlaced.Invoke();
+
     }
 }

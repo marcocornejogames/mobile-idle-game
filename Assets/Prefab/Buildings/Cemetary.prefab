@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2250431466305882821}
   - component: {fileID: 708807894946046716}
   - component: {fileID: 3618210007251897158}
+  - component: {fileID: 2508867002540444776}
+  - component: {fileID: 713301382458050427}
   m_Layer: 0
   m_Name: Cemetary
   m_TagString: Untagged
@@ -99,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd104a3929ffa9409decc14232d89cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _feedbackSystem: {fileID: 0}
   _boonToSpawn: {fileID: 7617256773992121780, guid: ebbdaab3da73bf04e8887633accfd050, type: 3}
   _boonSpawnDistance: 0
   _boonRange: 5
@@ -146,3 +149,42 @@ MonoBehaviour:
   _renderer: {fileID: 0}
   _sprites: []
   _randomizeFlip: 1
+--- !u!61 &2508867002540444776
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250431466305882822}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.060598046, y: -0.06867793}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5900306, y: 1.4626443}
+  m_EdgeRadius: 0
+--- !u!114 &713301382458050427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2250431466305882822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingEffectRadius: 0

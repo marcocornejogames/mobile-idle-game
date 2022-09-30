@@ -7,14 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Control Broadcast Events")]
     [SerializeField] private OnVector2Event _mousePosEvent;
-    [SerializeField] private OnBoolEvent _onClickEvent;
-    [SerializeField] private OnBoolEvent _onMiddleClickEvent;
+    [SerializeField] private OnBoolEvent _onRightClickEvent;
+    [SerializeField] private OnBoolEvent _onLeftClickEvent;
     [SerializeField] private OnVector2Event _onScrollEvent;
 
-    private void OnClick(InputValue inputValue)
+    private void OnRightClick(InputValue inputValue)
     {
-        _onClickEvent.Invoke(inputValue.isPressed);
-        //Debug.Log("LB Down = " + inputValue.isPressed);
+        _onRightClickEvent.Invoke(inputValue.isPressed);
+        //Debug.Log(RB Down = " + inputValue.isPressed);
     }
 
     private void OnMousePosition(InputValue inputValue)
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnLeftClick(InputValue inputValue)
     {
-        _onMiddleClickEvent.Invoke(inputValue.isPressed);
+        _onLeftClickEvent.Invoke(inputValue.isPressed);
         //Debug.Log("LMB Down = " + inputValue.isPressed);
     }
 

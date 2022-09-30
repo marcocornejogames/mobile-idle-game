@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4675867627197341203}
   - component: {fileID: 4675867627197341202}
   - component: {fileID: 4675867627197341205}
+  - component: {fileID: 3800664430964956745}
+  - component: {fileID: 391588593102049083}
   m_Layer: 0
   m_Name: EarthGoddessMonument
   m_TagString: Untagged
@@ -98,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd104a3929ffa9409decc14232d89cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _feedbackSystem: {fileID: 0}
   _boonToSpawn: {fileID: 9151335557026119735, guid: e68824496019b2b41a65d488925344f5, type: 3}
   _boonSpawnDistance: 1
   _boonRange: 5
@@ -130,3 +133,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!61 &3800664430964956745
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675867627197341201}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0022351742, y: -0.098392844}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.80639505, y: 1.2392261}
+  m_EdgeRadius: 0
+--- !u!114 &391588593102049083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4675867627197341201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildingEffectRadius: 0

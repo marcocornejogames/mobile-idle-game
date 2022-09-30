@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BuildingFeedbackData))]
 public class Bonfire : MonoBehaviour
 {
+    [Header("Component References")]
+    [SerializeField] private BuildingFeedbackData _feedbackData;
+
     [Header("Customization")]
     [SerializeField] private float _speedBonus = 0.1f;
     [SerializeField] private bool _limitedTime = false;
@@ -14,6 +18,9 @@ public class Bonfire : MonoBehaviour
     private void Awake()
     {
         if(_limitedTime) Invoke("Die", _lifeSpan);
+
+        _feedbackData = GetComponent<BuildingFeedbackData>();
+        _feedbackData.SetRadius(_range);
     }
 
     public void RegisterSpawn(GoblinBrain goblin)
