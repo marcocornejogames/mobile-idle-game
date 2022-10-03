@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-public class MatingHut : MonoBehaviour
+public class MatingHut : MonoBehaviour, IInformational
 {
     [Header("Component References")]
+    [SerializeField] private BuildingInformation _buildingInfo;
     [SerializeField] private GameObject _goblinPrefab;
     [SerializeField] private InputActionAsset _inputAction;
     [SerializeField] private string _onClickActionName = "Click";
@@ -14,6 +15,9 @@ public class MatingHut : MonoBehaviour
     [Header("Customization")]
     [SerializeField] private int _gobsPerSec = 1;
     [SerializeField] private int _gobsPerTap = 1;
+
+    [Header("Feedback")]
+    [SerializeField] private int _totalGoblinsBirthed = 0;
 
     [Header("Events")]
     [SerializeField] private UnityEvent _onGoblinSpawn;
@@ -30,6 +34,8 @@ public class MatingHut : MonoBehaviour
         for (int i = 0; i < _gobsPerSec; i++)
         {
             Instantiate(_goblinPrefab, this.transform.position, Quaternion.identity);
+            _totalGoblinsBirthed++;
+
             _onGoblinSpawn.Invoke();
         }
 
@@ -46,7 +52,25 @@ public class MatingHut : MonoBehaviour
         for (int i = 0; i < _gobsPerTap; i++)
         {
             Instantiate(_goblinPrefab, this.transform.position, Quaternion.identity);
+            _totalGoblinsBirthed++;
+
             _onGoblinSpawn.Invoke();
         }
+    }
+
+    //DISPLAY FEEDBACK______________________________________________________
+    public void PopulateInformation(BuildingFeedbackDisplay feedbackDisplay)
+    {
+        _buildingInfo.BasicInformationDisplay(feedbackDisplay);
+
+        string feedbackText =
+            "Total goblins birthed: " + _totalGoblinsBirthed;
+
+        feedbackDisplay.SetBody(feedbackText);
+    }
+
+    public GameObject GetObject()
+    {
+        return this.gameObject;
     }
 }

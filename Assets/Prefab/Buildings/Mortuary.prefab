@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _feedbackData: {fileID: 0}
+  _buildingInfo: {fileID: 11400000, guid: 737c01f8982271e479c9e1df184c2569, type: 2}
   _typeOfResourceBonus: 3
   _bonusAmount: 1
   _spawnBonusRange: 5
@@ -178,7 +179,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16030528, y: 0}
+  m_Offset: {x: 0.16030526, y: -0.014131188}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -189,7 +190,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2793894, y: 1.6}
+  m_Size: {x: 1.2793894, y: 1.4021635}
   m_EdgeRadius: 0
 --- !u!114 &2820189937642085047
 MonoBehaviour:
@@ -203,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingInfo: {fileID: 0}
   _buildingEffectRadius: 0
 --- !u!1001 &2823464478444399218
 PrefabInstance:

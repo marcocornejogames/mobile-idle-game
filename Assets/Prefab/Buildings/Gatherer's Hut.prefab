@@ -103,10 +103,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _feedbackSystem: {fileID: 0}
+  _buildingInfo: {fileID: 11400000, guid: 7d9fa3cc65274ca4c9dd0ed4b6ce229b, type: 2}
   _boonToSpawn: {fileID: 4734109489667421126, guid: 1dcbc6864085a5741a0f855e234aa148, type: 3}
   _boonSpawnDistance: 1
   _boonRange: 5
   _boonChance: 1
+  _flavorText: No hunting, only gathering.
+  _nameOfBoon: mushrooms
+  _lifetimeBonus: 0
 --- !u!114 &5371158682414092388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingInfo: {fileID: 0}
   _buildingEffectRadius: 0
 --- !u!61 &1148456355
 BoxCollider2D:
@@ -201,4 +206,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingInfo: {fileID: 0}
   _buildingEffectRadius: 0

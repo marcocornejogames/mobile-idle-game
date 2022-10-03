@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9151335557026119737}
   - component: {fileID: 9151335557026119734}
   - component: {fileID: 5330846183583721184}
+  - component: {fileID: 6443617021222456445}
   m_Layer: 0
   m_Name: Dandelion
   m_TagString: Untagged
@@ -131,6 +132,8 @@ MonoBehaviour:
   _colorShiftFactor: 0.1
   _spriteRenderer: {fileID: 0}
   _harvestable: {fileID: 0}
+  _displaySprite: {fileID: 21300000, guid: d8512a69394f6684791077a06117f3a3, type: 3}
+  _displaySubtitle: Looks pretty and does nothing
 --- !u!114 &5330846183583721184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +150,10 @@ MonoBehaviour:
   _resourceAmount: 0
   _taskOnAwake: 0
   _harvestTime: 0
+  _displayImage: {fileID: 0}
+  _nameOfHarvestable: 
+  _harvestableFlavorText: 
+  _infoText: 
   HarvestRange: 0.5
   HarvestInProgress: 0
   OnHarvestableSpawn:
@@ -167,3 +174,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!61 &6443617021222456445
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151335557026119735}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0495324, y: -0.15850383}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.27253082, y: 0.47066045}
+  m_EdgeRadius: 0

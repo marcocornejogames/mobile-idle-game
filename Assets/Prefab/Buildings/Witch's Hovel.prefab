@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _feedbackData: {fileID: 0}
+  _buildingInfo: {fileID: 11400000, guid: e6e14e32a24d27f49baa04165326f711, type: 2}
   _typeOfResourceBonus: 3
   _bonusAmount: 1
   _spawnBonusRange: 5
@@ -203,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingInfo: {fileID: 0}
   _buildingEffectRadius: 0
 --- !u!1001 &1177453172476282588
 PrefabInstance:

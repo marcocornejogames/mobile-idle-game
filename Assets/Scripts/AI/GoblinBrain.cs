@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoblinBrain : MonoBehaviour
+public class GoblinBrain : MonoBehaviour, IInformational
 {
     [Header("Component References")]
     [SerializeField] private UnitMovement _unitMovement;
@@ -28,6 +28,12 @@ public class GoblinBrain : MonoBehaviour
     [SerializeField] private GoblinScriptableEvent _onGoblinSpawnEvent;
     [SerializeField] private GoblinScriptableEvent _onGoblinDeathEvent;
 
+    [Header("Goblin Information")]
+    [SerializeField] private Sprite _headshot;
+    [SerializeField] private string _name;
+    [SerializeField] private string _flavorText = "They are born. They work. They die. What a life!";
+
+
     private bool _isWaiting;
 
 
@@ -48,6 +54,11 @@ public class GoblinBrain : MonoBehaviour
         Invoke("Die", _goblinLifespan);
 
 
+    }
+
+    private void Start()
+    {
+        _name = GoblinNameGenerator.Instance.GetRandomName();
     }
 
     private void Update()
@@ -184,5 +195,21 @@ public class GoblinBrain : MonoBehaviour
         _goblinLifespan = newLifespan;
     }
 
- 
+    //DISPLAY FEEDBACK______________________________________________________
+    public void PopulateInformation(BuildingFeedbackDisplay feedbackDisplay)
+    {
+        feedbackDisplay.SetTitle("Goblin");
+        feedbackDisplay.SetSubtitle(_flavorText);
+        feedbackDisplay.SetImage(_headshot);
+
+        string infoText =
+            "Name: " + _name + "\n" + "Lifespan: " + _goblinLifespan + " seconds \n" + "Speed: " + _unitMovement.GetSpeed();
+
+        feedbackDisplay.SetBody(infoText);
+    }
+
+    public GameObject GetObject()
+    {
+        return this.gameObject;
+    }
 }

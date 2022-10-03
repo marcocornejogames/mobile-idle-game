@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public  class PlayerResourceManager : MonoBehaviour
+public class PlayerResourceManager : MonoBehaviour
 {
     public static PlayerResourceManager Instance;
     public enum ResourceType

@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BuildingFeedbackData))]
-public class Boon : MonoBehaviour
+public class Boon : MonoBehaviour, IInformational
 {
     [Header("Component References")]
     [SerializeField] private BuildingFeedbackData _feedbackSystem;
+    [SerializeField] private BuildingInformation _buildingInfo;
 
     [Header("Customization")]
     [SerializeField] private GameObject _boonToSpawn;
     [SerializeField] private float _boonSpawnDistance = 1f;
     [SerializeField] private float _boonRange = 5f;
     [SerializeField][Range(0,1)] private float _boonChance = 1f;
+
+    [Header("Feedback Display")]
+    [SerializeField] private string _flavorText;
+    [SerializeField] private string _nameOfBoon;
+    [SerializeField] int _lifetimeBonus;
 
     private void Awake()
     {
@@ -34,6 +40,7 @@ public class Boon : MonoBehaviour
         }
 
         Instantiate(_boonToSpawn, candidatePosition, Quaternion.identity);
+        _lifetimeBonus++;
     }
 
     public void RegisterGoblin(GoblinBrain goblin)
@@ -50,5 +57,21 @@ public class Boon : MonoBehaviour
         }
 
         Instantiate(_boonToSpawn, candidatePosition, Quaternion.identity);
+        _lifetimeBonus++;
     }
+
+    //DISPLAY FEEDBACK______________________________________________________
+    public void PopulateInformation(BuildingFeedbackDisplay feedbackDisplay)
+    {
+        _buildingInfo.BasicInformationDisplay(feedbackDisplay);
+
+        string bodyText = _flavorText + "\n" + "Lifetime bonus: " + _lifetimeBonus + " " + _nameOfBoon;
+        feedbackDisplay.SetBody(bodyText);
+
+    }
+    public GameObject GetObject()
+    {
+        return this.gameObject;
+    }
+
 }

@@ -103,10 +103,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _feedbackSystem: {fileID: 0}
+  _buildingInfo: {fileID: 11400000, guid: 3ef8137983d90df49863695fa3d47bd9, type: 2}
   _boonToSpawn: {fileID: 3237357899511555032, guid: 3c9ae357a8e321649b82b9b61ef154be, type: 3}
   _boonSpawnDistance: 0
   _boonRange: 5
   _boonChance: 0.25
+  _flavorText: Does anyone speak plant?
+  _nameOfBoon: trees
+  _lifetimeBonus: 0
 --- !u!114 &8329874049208235642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,4 +220,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingInfo: {fileID: 0}
   _buildingEffectRadius: 0

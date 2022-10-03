@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(BuildingFeedbackData))]
-public class HarvestSpawnBonus : MonoBehaviour
+public class HarvestSpawnBonus : MonoBehaviour, IInformational
 {
     [Header("Component References")]
     [SerializeField] private BuildingFeedbackData _feedbackData;
+    [SerializeField] private BuildingInformation _buildingInfo;
 
     [Header("Customization")]
     [SerializeField] private PlayerResourceManager.ResourceType _typeOfResourceBonus;
@@ -33,5 +34,17 @@ public class HarvestSpawnBonus : MonoBehaviour
         _lifetimeBonus += _bonusAmount;
 
         _onBonusGranted.Invoke();
+    }
+
+    //DISPLAY FEEDBACK______________________________________________________
+    public void PopulateInformation(BuildingFeedbackDisplay feedbackDisplay)
+    {
+        _buildingInfo.BasicInformationDisplay(feedbackDisplay);
+        feedbackDisplay.SetBody("Lifetime bonus: " + _lifetimeBonus + " " + _typeOfResourceBonus);
+    }
+
+    public GameObject GetObject()
+    {
+        return this.gameObject;
     }
 }

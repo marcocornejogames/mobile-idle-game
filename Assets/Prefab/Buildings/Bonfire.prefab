@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _feedbackData: {fileID: 0}
+  _buildingInfo: {fileID: 11400000, guid: 1c46de642aa0dc64e9da3ae6947a2033, type: 2}
   _speedBonus: 0.1
   _limitedTime: 0
   _lifeSpan: 60
@@ -188,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingInfo: {fileID: 0}
   _buildingEffectRadius: 0
 --- !u!1001 &8665372492747753088
 PrefabInstance:

@@ -101,10 +101,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _feedbackSystem: {fileID: 0}
+  _buildingInfo: {fileID: 11400000, guid: 92eb6330a9b385d41bc3135ba95e1529, type: 2}
   _boonToSpawn: {fileID: 9151335557026119735, guid: e68824496019b2b41a65d488925344f5, type: 3}
   _boonSpawnDistance: 1
   _boonRange: 5
   _boonChance: 1
+  _flavorText: A blessing from the great mother.
+  _nameOfBoon: dandelions
+  _lifetimeBonus: 0
 --- !u!114 &4675867627197341205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,4 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingInfo: {fileID: 0}
   _buildingEffectRadius: 0

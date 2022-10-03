@@ -108,4 +108,8 @@ public class UnitMovement : MonoBehaviour
         _unitMaxSpeed *= (1 + speedBoost);
     }
 
+    public float GetSpeed()
+    {
+        return _unitMaxSpeed;
+    }
 }

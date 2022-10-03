@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Harvestable : MonoBehaviour
+public class Harvestable : MonoBehaviour, IInformational
 {
     [Header("Customization")]
     [SerializeField] private PlayerResourceManager.ResourceType _resourceType;
     [SerializeField] private int _resourceAmount;
     [SerializeField] private bool _taskOnAwake = true;
     [SerializeField] private float _harvestTime = 5f;
+
+    [Header("Display Feedback")]
+    [SerializeField] private Sprite _displayImage;
+    [SerializeField] private string _nameOfHarvestable;
+    [SerializeField] private string _harvestableFlavorText;
+    [SerializeField] private string _infoText;
+
 
     public float HarvestRange = 0.5f;
     public bool HarvestInProgress = false;
@@ -51,4 +58,25 @@ public class Harvestable : MonoBehaviour
         _resourceAmount *= bonusMultiplier;
     }
 
+    //DISPLAY FEEDBACK______________________________________________________
+    public void PopulateInformation(BuildingFeedbackDisplay feedbackDisplay)
+    {
+        feedbackDisplay.SetImage(_displayImage);
+        feedbackDisplay.SetTitle(_nameOfHarvestable);
+        feedbackDisplay.SetSubtitle(_harvestableFlavorText);
+
+        string harvestStatus = HarvestInProgress ? "Being harvested." : "Waiting to be harvested.";
+        
+        string bodyText =
+            _infoText + "\n" + "Harvest Time: " + _harvestTime + " seconds\n" + harvestStatus;
+
+        if (!_taskOnAwake) bodyText = _infoText;
+
+        feedbackDisplay.SetBody(bodyText);
+    }
+
+    public GameObject GetObject()
+    {
+        return this.gameObject;
+    }
 }

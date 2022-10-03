@@ -14,8 +14,10 @@ public class BuildingFeedbackSystem : MonoBehaviour
 
     [Header("Feedback")]
     [SerializeField] private Vector2 _mousePos;
+    private IInformational _currentFeedbackData;
+    private GameObject _feedbackObject;
 
-
+    private bool _canDisplay = true;
     //UNITY METHODS _______________________________
     private void Awake()
     {
@@ -25,6 +27,9 @@ public class BuildingFeedbackSystem : MonoBehaviour
     private void Update()
     {
         FindBuilding();
+
+        if (_feedbackObject != null && _currentFeedbackData != null) DisplayInformation(_currentFeedbackData);
+        else _feedbackDisplay.gameObject.SetActive(false);
     }
 
     //BUILDING RADIUS FEEDBACK ______________________________________
@@ -34,7 +39,7 @@ public class BuildingFeedbackSystem : MonoBehaviour
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(_mousePos);
         List<Collider2D> allCollided = new List<Collider2D>();
 
-        if(Physics2D.OverlapCircle(mouseWorldPos, 0.5f, _contactFilter, allCollided) > 0)
+        if(Physics2D.OverlapCircle(mouseWorldPos, 0.01f, _contactFilter, allCollided) > 0)
         {
             foreach (Collider2D collider in allCollided)
             {
@@ -83,6 +88,12 @@ public class BuildingFeedbackSystem : MonoBehaviour
 
     private void TryDisplayInfo()
     {
+        if (!_canDisplay)
+        {
+            _feedbackDisplay.gameObject.SetActive(false);
+            return;
+        }
+
         _feedbackDisplay.gameObject.SetActive(true);
 
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(_mousePos);
@@ -92,35 +103,23 @@ public class BuildingFeedbackSystem : MonoBehaviour
         {
             foreach (Collider2D collider in allCollided) // LOOK FOR BUILDINGS
             {
-                if (collider.TryGetComponent<BuildingFeedbackData>(out BuildingFeedbackData building))
+                if (collider.TryGetComponent<IInformational>(out IInformational subject))
                 {
-                    DisplayBuildingInfo();
+                    _currentFeedbackData = subject;
+                    _feedbackObject = _currentFeedbackData.GetObject();
                     return;
                 }
             }
 
-            foreach (Collider2D collider in allCollided) // LOOK FOR GOBLIN
-            {
-                if (collider.TryGetComponent<GoblinBrain>(out GoblinBrain goblin))
-                {
-                    DisplayGoblinInfo();
-                    return;
-                }
-            }
         }
 
         _feedbackDisplay.gameObject.SetActive(false);
     }
 
 
-    private void DisplayBuildingInfo()
+    private void DisplayInformation(IInformational subject)
     {
-
-    }
-
-    private void DisplayGoblinInfo()
-    {
-
+        subject.PopulateInformation(_feedbackDisplay);
     }
 
     //UPDATE PLAYER INPUT _____________________________________________
@@ -134,5 +133,14 @@ public class BuildingFeedbackSystem : MonoBehaviour
         if (isDown) TryDisplayInfo();
     }
 
+        public GameObject GetObject()
+    {
+        return this.gameObject;
+    }
 
+    //TOGGLE________________________________________________________
+    public void SetCanDisplay(bool canDisplay)
+    {
+        _canDisplay = canDisplay;
+    }
 }

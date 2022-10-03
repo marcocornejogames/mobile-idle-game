@@ -32,7 +32,7 @@ public class IncrementCurve : MonoBehaviour
         }
 
         if (_currentIncrement > 1) _currentIncrement = 1;
-        Debug.Log($"Incremented {numberOfIncrements} times! Current increment value: {_currentIncrement}.");
+        //Debug.Log($"Incremented {numberOfIncrements} times! Current increment value: {_currentIncrement}.");
     }
 
     public float ValueAtCurrentIncrement()

@@ -4839,7 +4839,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -4971,11 +4971,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d83aebeac9efe8b408d17fdb75cac249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingInfo: {fileID: 11400000, guid: fa97671b313428d448b695bff4f25fcd, type: 2}
   _goblinPrefab: {fileID: 6770958267948383484, guid: 81e50325bb519a7468fec3f995868315, type: 3}
   _inputAction: {fileID: -944628639613478452, guid: 9864464c2d6935f4d8dbb7a22b23444d, type: 3}
   _onClickActionName: Click
   _gobsPerSec: 1
   _gobsPerTap: 1
+  _totalGoblinsBirthed: 0
   _onGoblinSpawn:
     m_PersistentCalls:
       m_Calls:
@@ -5019,7 +5021,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.01853311, y: -0.044478863}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5030,7 +5032,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 1.9335921, y: 1.8816996}
   m_EdgeRadius: 0
 --- !u!114 &8595318638791752730
 MonoBehaviour:
@@ -5044,4 +5046,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b812d8f128d04489b825d1425723bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buildingInfo: {fileID: 0}
   _buildingEffectRadius: 0

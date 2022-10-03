@@ -61,4 +61,11 @@ public class BuildingInformation : ScriptableObject
         knowledgeCost *= (int)multiplier;
         powerCost *= (int)multiplier;
     }
+
+    public void BasicInformationDisplay(BuildingFeedbackDisplay feedbackDisplay)
+    {
+        feedbackDisplay.SetTitle(BuildingName);
+        feedbackDisplay.SetSubtitle(BuildingDescription);
+        feedbackDisplay.SetImage(BuildingShopImage);
+    }
 }
